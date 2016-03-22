@@ -1,6 +1,7 @@
 {
     "name": "angular-search-text",
     "version": "0.0.1",
+    "main": "dist/angular-search-text.min.js",
     "ignore": ["src", "bower.json", ".gitignore", "gulpfile.js", "minify.cmd", "package.json"],
     "dependencies": {
         "angular": ">=1.4.9",
