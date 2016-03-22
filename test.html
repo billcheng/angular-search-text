@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>Angular Search Text for Materialize</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" />
+<link rel="stylesheet" href="src/angular-search-text.css" />
+
+<body ng-app="myApp" ng-controller="MyController">
+    <div class="container" style="margin-top: 10px;">
+        <div class="row">
+            <div class="col s12">
+                Type either B, C or T
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 input-field">
+                <search-text ng-model="searchText" ng-request="doSearch(deferred, text)" ng-disabled="disabled" placeholder="Type to start searching..."></search-text>
+                <label class="active">Search Text</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                The text is: "<span ng-bind="searchText" class="red-text"></span>"
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+    <script src="src/angular-search-text.js"></script>
+    <script>
+        angular.module("myApp", ["ngSearchText"])
+                .controller("MyController", function($scope){
+                    var searchList = ["Bill", "Cheng", "Text 1", "Text 2"];
+                    $scope.searchText = "";
+                    
+                    $scope.doSearch = function(deferred, text) {
+                        
+                        var result = [];
+                        if (text!=='')
+                            var lowerCaseText = text.toLowerCase();
+                            angular.forEach(searchList, function(s){
+                                if (s.toLowerCase().startsWith(lowerCaseText))
+                                    result.push(s);
+                            });
+                                        
+                        // can be used for async http request as well
+                        deferred.resolve({data: result});
+                    };
+                    
+                });
+    </script>
+</body>
+
+</html>

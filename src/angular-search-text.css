@@ -1,0 +1,33 @@
+﻿.dropdown .dropdown-relative {
+    position: relative;
+    top: -30px;
+    left: 0;
+}
+
+.dropdown ul.dropdown-menu {
+    left: 0;
+    right: 0;
+    top: -100%;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    padding: 5px;
+    display: none;
+    border: 1px solid lightgray;
+    max-height: 200px;
+    overflow: auto;
+}
+
+
+.dropdown.open ul.dropdown-menu {
+    display: inline;
+}
+
+.dropdown ul.dropdown-menu li:hover {
+    background-color: lightblue;
+}
+
+.dropdown ul.dropdown-menu li a {
+    cursor: default;
+    color: black;
+}
