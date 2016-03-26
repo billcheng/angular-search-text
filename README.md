@@ -1,6 +1,8 @@
 # angular-search-text
 Angular Search Text Box for Materialize
 
+<a href="http://plnkr.co/edit/BSBsHpTzWpjv8QUvnBJG?p=preview">DEMO</a>
+
 # Install
 ```code
 bower install angular-search-text
